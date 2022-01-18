@@ -1,14 +1,13 @@
-import React, { createContext } from 'react';
+import React, { createContext, useContext } from 'react';
+import Data from '.././Mock/movies.js';
 
+export const MovieContext = createContext();
 
-const MovieContext = createContext();
+const Movie = ({ children }) => {
+  const [Movie, setMovie] = useContext(Data);
 
-export const Movie = ({ children }) => {
-    
-    return(
-    <MovieContext.Provider value={'hey'}>
+return  <MovieContext.Provider value={Movie}>
         {children}
-    </MovieContext.Provider >
-    )
+     </MovieContext.Provider>;
 };
 export default Movie;
